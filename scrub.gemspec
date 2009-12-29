@@ -5,13 +5,21 @@
 
 Gem::Specification.new do |s|
   s.name = %q{scrub}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Matthew Mongeau"]
-  s.date = %q{2009-12-22}
+  s.date = %q{2009-12-29}
   s.description = %q{Scrub files with ease and elbow grease}
   s.email = %q{matt@toastyapps.com}
+  s.files = [
+    ".gitignore",
+     "Rakefile",
+     "Readme.textile",
+     "VERSION",
+     "lib/scrub.rb",
+     "scrub.gemspec"
+  ]
   s.homepage = %q{http://github.com/toastyapps/scrub}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]

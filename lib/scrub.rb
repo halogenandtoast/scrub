@@ -5,7 +5,7 @@ module Scrub
     end
   
     def config
-      @config = Scrubber::Config.new
+      @config = Scrub::Config.new
       yield @config
     end
   
