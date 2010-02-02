@@ -13,14 +13,22 @@ class Scrubber
     while(line = lines.shift)
       line.strip!
       @config.matchers.each do |matcher, prok|
-        prok.call(line) if line =~ matcher
+        if match = line.match(matcher)
+          prok.call(line, *match.captures)
+        end
       end
       @config.between_matchers.each do |matcher, options|
         if line =~ matcher
           end_matcher, prok, conditions = options
           next_line = nil
           while(next_line = lines.shift) && (next_line !~ end_matcher)
-            prok.call(next_line) if next_line =~ conditions[:when]
+            if conditions[:when]
+              if match = next_line.match(conditions[:when])
+                prok.call(next_line, *match.captures) 
+              end
+            else
+              prok.call(next_line) 
+            end
           end
         end
       end
